@@ -5,153 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tynk Wireframe</title>
   <style>
-    *{box-sizing:border-box} body{margin:0;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif} button,input{font:inherit} .app{min-height:100vh;max-width:430px;margin:0 auto;border-left:1px solid #000;border-right:1px solid #000;background:#fff}.screen{min-height:100vh;padding:42px 24px 28px;display:flex;flex-direction:column;justify-content:space-between}.center{align-items:center;justify-content:center;text-align:center}.logo{font-size:64px;font-weight:900;letter-spacing:8px;margin:0 0 8px}.small{font-size:12px;letter-spacing:2px;margin-bottom:48px}.eyebrow{font-size:13px;font-weight:700;letter-spacing:2px;margin:0 0 8px}.heading{font-size:40px;line-height:44px;font-weight:900;margin:0 0 20px}.body{font-size:17px;line-height:25px;margin:0;max-width:430px}.stack{display:grid;gap:12px}.btn{width:100%;min-height:54px;border:2px solid #000;border-radius:0;background:#fff;color:#000;font-size:15px;font-weight:800;letter-spacing:1.5px;cursor:pointer}.btn.filled{background:#000;color:#fff}.back,.action{border:0;background:transparent;padding:0;color:#000;font-weight:800;letter-spacing:1.4px;cursor:pointer}.back{font-size:14px;margin-bottom:36px}.action{font-size:12px}.input{width:100%;min-height:56px;border:2px solid #000;border-radius:0;padding:0 14px;margin-bottom:14px;font-size:16px;background:#fff;color:#000}.top{display:flex;justify-content:space-between;align-items:center}.grid{display:grid;gap:12px}.card{min-height:140px;border:2px solid #000;padding:18px;background:#fff;text-align:left}.clickable{cursor:pointer}.num{font-size:12px;font-weight:800;letter-spacing:1.5px;margin:0 0 26px}.title{font-size:17px;font-weight:900;letter-spacing:1px;margin:0 0 8px}.copy{font-size:15px;line-height:21px;margin:0}.dash{min-height:260px;border:2px dashed #000;display:flex;align-items:center;justify-content:center}.hidden{display:none}.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:24px;z-index:10}.modal.hidden{display:none}.modal-card{width:100%;max-width:430px;border:2px solid #000;background:#fff;padding:24px}.modal-title{font-size:26px;line-height:31px;font-weight:900;margin:0 0 14px}.modal-copy{font-size:17px;line-height:25px;margin:0 0 24px}
+    *{box-sizing:border-box}body{margin:0;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif}button,input{font:inherit}.app{min-height:100vh;max-width:430px;margin:0 auto;border-left:1px solid #000;border-right:1px solid #000;background:#fff}.screen{min-height:100vh;padding:42px 24px 28px;display:flex;flex-direction:column;justify-content:space-between}.center{align-items:center;justify-content:center;text-align:center}.logo{font-size:64px;font-weight:900;letter-spacing:8px;margin:0 0 8px}.home-logo{font-size:48px;font-weight:900;letter-spacing:7px;text-align:center;margin:42px 0 34px}.small{font-size:12px;letter-spacing:2px;margin-bottom:48px}.eyebrow{font-size:13px;font-weight:700;letter-spacing:2px;margin:0 0 8px}.heading{font-size:40px;line-height:44px;font-weight:900;margin:0 0 20px}.body{font-size:17px;line-height:25px;margin:0;max-width:430px}.stack{display:grid;gap:12px}.btn{width:100%;min-height:54px;border:2px solid #000;border-radius:0;background:#fff;color:#000;font-size:15px;font-weight:800;letter-spacing:1.5px;cursor:pointer}.btn.filled{background:#000;color:#fff}.back,.action,.shell-button{border:0;background:transparent;padding:0;color:#000;font-weight:800;letter-spacing:1.2px;cursor:pointer}.back{font-size:14px;margin-bottom:36px}.action{font-size:11px}.input{width:100%;min-height:56px;border:2px solid #000;border-radius:0;padding:0 14px;margin-bottom:14px;font-size:16px;background:#fff;color:#000}.shell{border:2px solid #000;padding:16px}.shell-row{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center}.shell-button:first-child{text-align:left}.shell-button:last-child{text-align:right}.shell-title{text-align:center;font-size:14px;font-weight:900;letter-spacing:2px}.utility-row{display:flex;justify-content:space-between;margin-top:14px;min-height:14px}.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.feature{aspect-ratio:1;border:2px solid #000;background:#fff;padding:16px;text-align:left;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer}.feature-title{font-size:17px;line-height:21px;font-weight:900;letter-spacing:.7px;margin:0 0 8px}.feature-copy{font-size:13px;line-height:18px;margin:0}.dash{min-height:260px;border:2px dashed #000;display:flex;align-items:center;justify-content:center}.hidden{display:none}.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:24px;z-index:10}.modal.hidden{display:none}.modal-card{width:100%;max-width:430px;border:2px solid #000;background:#fff;padding:24px}.modal-title{font-size:26px;line-height:31px;font-weight:900;margin:0 0 14px}.modal-copy{font-size:17px;line-height:25px;margin:0 0 24px}
   </style>
 </head>
 <body>
   <main class="app">
-    <section id="splash" class="screen center">
-      <div>
-        <h1 class="logo">TYNK</h1>
-        <div class="small">APP PLACEHOLDER</div>
-        <button class="btn filled" data-go="welcome">CONTINUE</button>
-      </div>
-    </section>
+    <section id="splash" class="screen center"><div><h1 class="logo">TYNK</h1><div class="small">APP PLACEHOLDER</div><button class="btn filled" data-go="welcome">CONTINUE</button></div></section>
 
     <section id="welcome" class="screen hidden">
-      <div>
-        <p class="eyebrow">WELCOME TO</p>
-        <h1 class="heading">TYNK</h1>
-        <p class="body">A blank starting point for collecting, organizing, and returning to the things that matter to you.</p>
-      </div>
-      <div class="stack">
-        <button class="btn filled" data-auth="create">CREATE ACCOUNT</button>
-        <button class="btn" data-auth="signin">SIGN IN</button>
-        <button class="btn" id="explore">EXPLORE</button>
-      </div>
+      <div><p class="eyebrow">WELCOME TO</p><h1 class="heading">TYNK</h1><p class="body">A blank starting point for collecting, organizing, and returning to the things that matter to you.</p></div>
+      <div class="stack"><button class="btn filled" data-auth="create">CREATE ACCOUNT</button><button class="btn" data-auth="signin">SIGN IN</button><button class="btn" id="explore">EXPLORE</button></div>
     </section>
 
     <section id="auth" class="screen hidden">
-      <div>
-        <button class="back" data-go="welcome">← BACK</button>
-        <h1 id="authTitle" class="heading">SIGN IN</h1>
-        <input id="nameInput" class="input hidden" placeholder="NAME" />
-        <input class="input" placeholder="EMAIL" type="email" />
-        <input class="input" placeholder="PASSWORD" type="password" />
-      </div>
+      <div><button class="back" data-go="welcome">← BACK</button><h1 id="authTitle" class="heading">SIGN IN</h1><input id="nameInput" class="input hidden" placeholder="NAME" /><input class="input" placeholder="EMAIL" type="email" /><input class="input" placeholder="PASSWORD" type="password" /></div>
       <button id="authSubmit" class="btn filled">SIGN IN</button>
     </section>
 
     <section id="home" class="screen hidden">
       <div>
-        <div class="top">
-          <p id="homeMode" class="eyebrow">HOME</p>
-          <button id="leave" class="action">SIGN OUT</button>
-        </div>
-        <h1 class="heading">HELLO.</h1>
-        <p id="homeCopy" class="body">This is the basic app home screen. Nothing here is permanently styled yet.</p>
-      </div>
-      <div class="grid">
-        <button class="card clickable" data-go="dashboard">
-          <p class="num">01</p>
-          <p class="title">PERSONAL DASHBOARD</p>
-          <p class="copy">Open your own organized space.</p>
-        </button>
-        <div class="card">
-          <p class="num">02</p>
-          <p class="title">PLACEHOLDER</p>
-          <p class="copy">Reserved for a future feature.</p>
+        <header class="shell">
+          <div class="shell-row"><button class="shell-button">PROFILE</button><div class="shell-title">HOME</div><button class="shell-button">SETTINGS</button></div>
+          <div class="utility-row"><span id="homeMode" class="action"></span><button id="leave" class="action">SIGN OUT</button></div>
+        </header>
+        <h1 class="home-logo">TYNK</h1>
+        <div class="feature-grid">
+          <button class="feature"><p class="feature-title">MIND LOUNGE</p><p class="feature-copy">Your personalized shortcut space.</p></button>
+          <button class="feature"><p class="feature-title">CATCH A THOUGHT</p><p class="feature-copy">Quickly capture something new.</p></button>
+          <button class="feature"><p class="feature-title">WORKSPACE</p><p class="feature-copy">Build and develop your content.</p></button>
+          <button class="feature"><p class="feature-title">OVERVIEW</p><p class="feature-copy">Browse and organize everything.</p></button>
         </div>
       </div>
-    </section>
-
-    <section id="dashboard" class="screen hidden">
-      <div>
-        <button class="back" data-go="home">← HOME</button>
-        <h1 class="heading">PERSONAL DASHBOARD</h1>
-        <p class="body">This screen will eventually become the user-controlled space for arranging content however they choose.</p>
-      </div>
-      <div class="dash"><p class="title">EMPTY CANVAS</p></div>
     </section>
   </main>
 
-  <div id="rememberModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="rememberTitle">
-    <div class="modal-card">
-      <h2 id="rememberTitle" class="modal-title">REMEMBER THIS ACCOUNT?</h2>
-      <p class="modal-copy">Would you like Tynk to remember this account on this device for faster sign-in next time?</p>
-      <div class="stack">
-        <button id="rememberYes" class="btn filled">REMEMBER ACCOUNT</button>
-        <button id="rememberNo" class="btn">NOT NOW</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="exploreModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="exploreTitle">
-    <div class="modal-card">
-      <h2 id="exploreTitle" class="modal-title">EXPLORE TYNK</h2>
-      <p class="modal-copy">Feel free to explore the app without any setup. This is an unguided app demo. You can add or change content while exploring, but your progress cannot be saved and will be lost when you exit. Would you like to continue?</p>
-      <div class="stack">
-        <button id="exploreYes" class="btn filled">YES</button>
-        <button id="exploreNo" class="btn">NO</button>
-      </div>
-    </div>
-  </div>
+  <div id="rememberModal" class="modal hidden"><div class="modal-card"><h2 class="modal-title">REMEMBER THIS ACCOUNT?</h2><p class="modal-copy">Would you like Tynk to remember this account on this device for faster sign-in next time?</p><div class="stack"><button id="rememberYes" class="btn filled">REMEMBER ACCOUNT</button><button id="rememberNo" class="btn">NOT NOW</button></div></div></div>
+  <div id="exploreModal" class="modal hidden"><div class="modal-card"><h2 class="modal-title">EXPLORE TYNK</h2><p class="modal-copy">Feel free to explore the app without any setup. This is an unguided app demo. You can add or change content while exploring, but your progress cannot be saved and will be lost when you exit. Would you like to continue?</p><div class="stack"><button id="exploreYes" class="btn filled">YES</button><button id="exploreNo" class="btn">NO</button></div></div></div>
 
   <script>
-    let guestMode = false;
-    const sections = [...document.querySelectorAll('section')];
-    const rememberModal = document.getElementById('rememberModal');
-    const exploreModal = document.getElementById('exploreModal');
-
-    function show(id){ sections.forEach(s=>s.classList.toggle('hidden',s.id!==id)); }
-    function openModal(modal){ modal.classList.remove('hidden'); }
-    function closeModal(modal){ modal.classList.add('hidden'); }
-
+    let guestMode=false;
+    const sections=[...document.querySelectorAll('section')],rememberModal=document.getElementById('rememberModal'),exploreModal=document.getElementById('exploreModal');
+    const show=id=>sections.forEach(s=>s.classList.toggle('hidden',s.id!==id));
+    const openModal=m=>m.classList.remove('hidden'),closeModal=m=>m.classList.add('hidden');
     document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',()=>show(el.dataset.go)));
-    document.querySelectorAll('[data-auth]').forEach(el=>el.addEventListener('click',()=>{
-      guestMode=false;
-      const creating=el.dataset.auth==='create';
-      document.getElementById('authTitle').textContent=creating?'CREATE ACCOUNT':'SIGN IN';
-      document.getElementById('authSubmit').textContent=creating?'CREATE ACCOUNT':'SIGN IN';
-      document.getElementById('nameInput').classList.toggle('hidden',!creating);
-      show('auth');
-    }));
-
-    document.getElementById('authSubmit').addEventListener('click',()=>{
-      guestMode=false;
-      openModal(rememberModal);
-    });
-
-    function enterSignedInApp(){
-      closeModal(rememberModal);
-      updateHome();
-      show('home');
-    }
-
-    document.getElementById('rememberYes').addEventListener('click',enterSignedInApp);
-    document.getElementById('rememberNo').addEventListener('click',enterSignedInApp);
-
+    document.querySelectorAll('[data-auth]').forEach(el=>el.addEventListener('click',()=>{guestMode=false;const creating=el.dataset.auth==='create';document.getElementById('authTitle').textContent=creating?'CREATE ACCOUNT':'SIGN IN';document.getElementById('authSubmit').textContent=creating?'CREATE ACCOUNT':'SIGN IN';document.getElementById('nameInput').classList.toggle('hidden',!creating);show('auth')}));
+    document.getElementById('authSubmit').addEventListener('click',()=>{guestMode=false;openModal(rememberModal)});
+    function enterSignedInApp(){closeModal(rememberModal);updateHome();show('home')}
+    document.getElementById('rememberYes').addEventListener('click',enterSignedInApp);document.getElementById('rememberNo').addEventListener('click',enterSignedInApp);
     document.getElementById('explore').addEventListener('click',()=>openModal(exploreModal));
-    document.getElementById('exploreYes').addEventListener('click',()=>{
-      closeModal(exploreModal);
-      guestMode=true;
-      updateHome();
-      show('home');
-    });
-    document.getElementById('exploreNo').addEventListener('click',()=>closeModal(exploreModal));
-
-    document.getElementById('leave').addEventListener('click',()=>{
-      guestMode=false;
-      show('welcome');
-    });
-
-    function updateHome(){
-      document.getElementById('homeMode').textContent=guestMode?'EXPLORE MODE':'HOME';
-      document.getElementById('leave').textContent=guestMode?'EXIT EXPLORE':'SIGN OUT';
-      document.getElementById('homeCopy').textContent=guestMode
-        ? 'Explore the sample app freely. Anything changed or added during this visit will not be saved.'
-        : 'This is the basic app home screen. Nothing here is permanently styled yet.';
-    }
+    document.getElementById('exploreYes').addEventListener('click',()=>{closeModal(exploreModal);guestMode=true;updateHome();show('home')});document.getElementById('exploreNo').addEventListener('click',()=>closeModal(exploreModal));
+    document.getElementById('leave').addEventListener('click',()=>{guestMode=false;show('welcome')});
+    function updateHome(){document.getElementById('homeMode').textContent=guestMode?'EXPLORE MODE':'';document.getElementById('leave').textContent=guestMode?'EXIT EXPLORE':'SIGN OUT'}
   </script>
 </body>
 </html>
