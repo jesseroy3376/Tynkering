@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tynk Wireframe</title>
   <style>
-    *{box-sizing:border-box} body{margin:0;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif} button,input{font:inherit} .app{min-height:100vh;max-width:430px;margin:0 auto;border-left:1px solid #000;border-right:1px solid #000;background:#fff}.screen{min-height:100vh;padding:42px 24px 28px;display:flex;flex-direction:column;justify-content:space-between}.center{align-items:center;justify-content:center;text-align:center}.logo{font-size:64px;font-weight:900;letter-spacing:8px;margin:0 0 8px}.small{font-size:12px;letter-spacing:2px;margin-bottom:48px}.eyebrow{font-size:13px;font-weight:700;letter-spacing:2px;margin:0 0 8px}.heading{font-size:40px;line-height:44px;font-weight:900;margin:0 0 20px}.body{font-size:17px;line-height:25px;margin:0;max-width:430px}.stack{display:grid;gap:12px}.btn{width:100%;min-height:54px;border:2px solid #000;border-radius:0;background:#fff;color:#000;font-size:15px;font-weight:800;letter-spacing:1.5px;cursor:pointer}.btn.filled{background:#000;color:#fff}.back,.action{border:0;background:transparent;padding:0;color:#000;font-weight:800;letter-spacing:1.4px;cursor:pointer}.back{font-size:14px;margin-bottom:36px}.action{font-size:12px}.input{width:100%;min-height:56px;border:2px solid #000;border-radius:0;padding:0 14px;margin-bottom:14px;font-size:16px;background:#fff;color:#000}.top{display:flex;justify-content:space-between;align-items:center}.grid{display:grid;gap:12px}.card{min-height:140px;border:2px solid #000;padding:18px;background:#fff;text-align:left}.clickable{cursor:pointer}.num{font-size:12px;font-weight:800;letter-spacing:1.5px;margin:0 0 26px}.title{font-size:17px;font-weight:900;letter-spacing:1px;margin:0 0 8px}.copy{font-size:15px;line-height:21px;margin:0}.dash{min-height:260px;border:2px dashed #000;display:flex;align-items:center;justify-content:center}.note{font-size:12px;line-height:18px;margin-top:12px}.hidden{display:none}
+    *{box-sizing:border-box} body{margin:0;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif} button,input{font:inherit} .app{min-height:100vh;max-width:430px;margin:0 auto;border-left:1px solid #000;border-right:1px solid #000;background:#fff}.screen{min-height:100vh;padding:42px 24px 28px;display:flex;flex-direction:column;justify-content:space-between}.center{align-items:center;justify-content:center;text-align:center}.logo{font-size:64px;font-weight:900;letter-spacing:8px;margin:0 0 8px}.small{font-size:12px;letter-spacing:2px;margin-bottom:48px}.eyebrow{font-size:13px;font-weight:700;letter-spacing:2px;margin:0 0 8px}.heading{font-size:40px;line-height:44px;font-weight:900;margin:0 0 20px}.body{font-size:17px;line-height:25px;margin:0;max-width:430px}.stack{display:grid;gap:12px}.btn{width:100%;min-height:54px;border:2px solid #000;border-radius:0;background:#fff;color:#000;font-size:15px;font-weight:800;letter-spacing:1.5px;cursor:pointer}.btn.filled{background:#000;color:#fff}.back,.action{border:0;background:transparent;padding:0;color:#000;font-weight:800;letter-spacing:1.4px;cursor:pointer}.back{font-size:14px;margin-bottom:36px}.action{font-size:12px}.input{width:100%;min-height:56px;border:2px solid #000;border-radius:0;padding:0 14px;margin-bottom:14px;font-size:16px;background:#fff;color:#000}.top{display:flex;justify-content:space-between;align-items:center}.grid{display:grid;gap:12px}.card{min-height:140px;border:2px solid #000;padding:18px;background:#fff;text-align:left}.clickable{cursor:pointer}.num{font-size:12px;font-weight:800;letter-spacing:1.5px;margin:0 0 26px}.title{font-size:17px;font-weight:900;letter-spacing:1px;margin:0 0 8px}.copy{font-size:15px;line-height:21px;margin:0}.dash{min-height:260px;border:2px dashed #000;display:flex;align-items:center;justify-content:center}.hidden{display:none}.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:24px;z-index:10}.modal.hidden{display:none}.modal-card{width:100%;max-width:430px;border:2px solid #000;background:#fff;padding:24px}.modal-title{font-size:26px;line-height:31px;font-weight:900;margin:0 0 14px}.modal-copy{font-size:17px;line-height:25px;margin:0 0 24px}
   </style>
 </head>
 <body>
@@ -75,10 +75,38 @@
     </section>
   </main>
 
+  <div id="rememberModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="rememberTitle">
+    <div class="modal-card">
+      <h2 id="rememberTitle" class="modal-title">REMEMBER THIS ACCOUNT?</h2>
+      <p class="modal-copy">Would you like Tynk to remember this account on this device for faster sign-in next time?</p>
+      <div class="stack">
+        <button id="rememberYes" class="btn filled">REMEMBER ACCOUNT</button>
+        <button id="rememberNo" class="btn">NOT NOW</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="exploreModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="exploreTitle">
+    <div class="modal-card">
+      <h2 id="exploreTitle" class="modal-title">EXPLORE TYNK</h2>
+      <p class="modal-copy">Feel free to explore the app without any setup. This is an unguided app demo. Would you like to continue?</p>
+      <div class="stack">
+        <button id="exploreYes" class="btn filled">YES</button>
+        <button id="exploreNo" class="btn">NO</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     let guestMode = false;
     const sections = [...document.querySelectorAll('section')];
+    const rememberModal = document.getElementById('rememberModal');
+    const exploreModal = document.getElementById('exploreModal');
+
     function show(id){ sections.forEach(s=>s.classList.toggle('hidden',s.id!==id)); }
+    function openModal(modal){ modal.classList.remove('hidden'); }
+    function closeModal(modal){ modal.classList.add('hidden'); }
+
     document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',()=>show(el.dataset.go)));
     document.querySelectorAll('[data-auth]').forEach(el=>el.addEventListener('click',()=>{
       guestMode=false;
@@ -88,9 +116,35 @@
       document.getElementById('nameInput').classList.toggle('hidden',!creating);
       show('auth');
     }));
-    document.getElementById('authSubmit').addEventListener('click',()=>{ guestMode=false; updateHome(); show('home'); });
-    document.getElementById('explore').addEventListener('click',()=>{ guestMode=true; updateHome(); show('home'); });
-    document.getElementById('leave').addEventListener('click',()=>{ guestMode=false; show('welcome'); });
+
+    document.getElementById('authSubmit').addEventListener('click',()=>{
+      guestMode=false;
+      openModal(rememberModal);
+    });
+
+    function enterSignedInApp(){
+      closeModal(rememberModal);
+      updateHome();
+      show('home');
+    }
+
+    document.getElementById('rememberYes').addEventListener('click',enterSignedInApp);
+    document.getElementById('rememberNo').addEventListener('click',enterSignedInApp);
+
+    document.getElementById('explore').addEventListener('click',()=>openModal(exploreModal));
+    document.getElementById('exploreYes').addEventListener('click',()=>{
+      closeModal(exploreModal);
+      guestMode=true;
+      updateHome();
+      show('home');
+    });
+    document.getElementById('exploreNo').addEventListener('click',()=>closeModal(exploreModal));
+
+    document.getElementById('leave').addEventListener('click',()=>{
+      guestMode=false;
+      show('welcome');
+    });
+
     function updateHome(){
       document.getElementById('homeMode').textContent=guestMode?'EXPLORE MODE':'HOME';
       document.getElementById('leave').textContent=guestMode?'EXIT EXPLORE':'SIGN OUT';
