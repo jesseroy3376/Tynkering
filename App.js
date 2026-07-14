@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Modal,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -20,6 +21,31 @@ function SquareButton({ label, onPress, filled = false }) {
         {label}
       </Text>
     </TouchableOpacity>
+  );
+}
+
+function ConfirmationPopup({
+  visible,
+  title,
+  message,
+  primaryLabel,
+  secondaryLabel,
+  onPrimary,
+  onSecondary,
+}) {
+  return (
+    <Modal visible={visible} transparent animationType="fade">
+      <View style={styles.modalBackdrop}>
+        <View style={styles.modalCard}>
+          <Text style={styles.modalTitle}>{title}</Text>
+          <Text style={styles.modalCopy}>{message}</Text>
+          <View style={styles.buttonStack}>
+            <SquareButton label={primaryLabel} onPress={onPrimary} filled />
+            <SquareButton label={secondaryLabel} onPress={onSecondary} />
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 }
 
@@ -165,6 +191,8 @@ export default function App() {
   const [screen, setScreen] = useState('splash');
   const [authMode, setAuthMode] = useState('signin');
   const [guestMode, setGuestMode] = useState(false);
+  const [showRememberPopup, setShowRememberPopup] = useState(false);
+  const [showExplorePopup, setShowExplorePopup] = useState(false);
 
   const openAuth = (mode) => {
     setGuestMode(false);
@@ -172,8 +200,19 @@ export default function App() {
     setScreen('auth');
   };
 
-  const openExplore = () => {
+  const confirmExplore = () => {
+    setShowExplorePopup(false);
     setGuestMode(true);
+    setScreen('home');
+  };
+
+  const finishAuthentication = () => {
+    setGuestMode(false);
+    setShowRememberPopup(true);
+  };
+
+  const enterSignedInApp = () => {
+    setShowRememberPopup(false);
     setScreen('home');
   };
 
@@ -194,7 +233,7 @@ export default function App() {
         <WelcomeScreen
           onCreateAccount={() => openAuth('create')}
           onSignIn={() => openAuth('signin')}
-          onExplore={openExplore}
+          onExplore={() => setShowExplorePopup(true)}
         />
       )}
 
@@ -202,10 +241,7 @@ export default function App() {
         <SignInScreen
           mode={authMode}
           onBack={() => setScreen('welcome')}
-          onComplete={() => {
-            setGuestMode(false);
-            setScreen('home');
-          }}
+          onComplete={finishAuthentication}
         />
       )}
 
@@ -220,12 +256,35 @@ export default function App() {
       {screen === 'dashboard' && (
         <DashboardScreen onBack={() => setScreen('home')} />
       )}
+
+      <ConfirmationPopup
+        visible={showRememberPopup}
+        title="REMEMBER THIS ACCOUNT?"
+        message="Would you like Tynk to remember this account on this device for faster sign-in next time?"
+        primaryLabel="REMEMBER ACCOUNT"
+        secondaryLabel="NOT NOW"
+        onPrimary={enterSignedInApp}
+        onSecondary={enterSignedInApp}
+      />
+
+      <ConfirmationPopup
+        visible={showExplorePopup}
+        title="EXPLORE TYNK"
+        message="Feel free to explore the app without any setup. This is an unguided app demo. Would you like to continue?"
+        primaryLabel="YES"
+        secondaryLabel="NO"
+        onPrimary={confirmExplore}
+        onSecondary={() => setShowExplorePopup(false)}
+      />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: '#ffffff' },
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+  },
   screen: {
     flex: 1,
     justifyContent: 'space-between',
@@ -268,8 +327,15 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginBottom: 20,
   },
-  bodyCopy: { maxWidth: 430, fontSize: 17, lineHeight: 25, color: '#000000' },
-  buttonStack: { gap: 12 },
+  bodyCopy: {
+    maxWidth: 430,
+    fontSize: 17,
+    lineHeight: 25,
+    color: '#000000',
+  },
+  buttonStack: {
+    gap: 12,
+  },
   button: {
     width: '100%',
     minHeight: 54,
@@ -281,14 +347,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     paddingHorizontal: 16,
   },
-  buttonFilled: { backgroundColor: '#000000' },
+  buttonFilled: {
+    backgroundColor: '#000000',
+  },
   buttonText: {
     fontSize: 15,
     fontWeight: '800',
     letterSpacing: 1.5,
     color: '#000000',
   },
-  buttonTextFilled: { color: '#ffffff' },
+  buttonTextFilled: {
+    color: '#ffffff',
+  },
   backText: {
     fontSize: 14,
     fontWeight: '800',
@@ -319,7 +389,9 @@ const styles = StyleSheet.create({
     letterSpacing: 1.2,
     color: '#000000',
   },
-  homeGrid: { gap: 12 },
+  homeGrid: {
+    gap: 12,
+  },
   placeholderCard: {
     minHeight: 140,
     borderWidth: 2,
@@ -342,7 +414,11 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginBottom: 8,
   },
-  cardCopy: { fontSize: 15, lineHeight: 21, color: '#000000' },
+  cardCopy: {
+    fontSize: 15,
+    lineHeight: 21,
+    color: '#000000',
+  },
   dashboardBox: {
     minHeight: 260,
     alignItems: 'center',
@@ -352,5 +428,33 @@ const styles = StyleSheet.create({
     borderStyle: 'dashed',
     borderRadius: 0,
     backgroundColor: '#ffffff',
+  },
+  modalBackdrop: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 24,
+    backgroundColor: 'rgba(0, 0, 0, 0.45)',
+  },
+  modalCard: {
+    width: '100%',
+    maxWidth: 430,
+    borderWidth: 2,
+    borderColor: '#000000',
+    backgroundColor: '#ffffff',
+    padding: 24,
+  },
+  modalTitle: {
+    fontSize: 26,
+    lineHeight: 31,
+    fontWeight: '900',
+    color: '#000000',
+    marginBottom: 14,
+  },
+  modalCopy: {
+    fontSize: 17,
+    lineHeight: 25,
+    color: '#000000',
+    marginBottom: 24,
   },
 });
