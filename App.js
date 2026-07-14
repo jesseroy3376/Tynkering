@@ -270,7 +270,7 @@ export default function App() {
       <ConfirmationPopup
         visible={showExplorePopup}
         title="EXPLORE TYNK"
-        message="Feel free to explore the app without any setup. This is an unguided app demo. Would you like to continue?"
+        message="Feel free to explore the app without any setup. This is an unguided app demo. You can add or change content while exploring, but your progress cannot be saved and will be lost when you exit. Would you like to continue?"
         primaryLabel="YES"
         secondaryLabel="NO"
         onPrimary={confirmExplore}
